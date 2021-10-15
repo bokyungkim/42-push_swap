@@ -6,12 +6,24 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:23:53 by bokim             #+#    #+#             */
-/*   Updated: 2021/10/15 18:38:36 by bokim            ###   ########.fr       */
+/*   Updated: 2021/10/16 00:13:30 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/push_swap.h"
+
 int	check_argv(char **argv)
 {
+	int	idx;
+
+	idx = 1;
+	while (argv[idx])
+	{
+		if (ft_strchr(argv[idx], ' '))
+		{
+			
+		}
+	}
 	//문자열을 int로 변환
 	//int 범위 밖의 숫자가 들어올 경우
 	//숫자가 아닌 문자가 들어올 경우

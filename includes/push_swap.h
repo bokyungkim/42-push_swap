@@ -6,11 +6,13 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:33:01 by bokim             #+#    #+#             */
-/*   Updated: 2021/10/15 18:33:56 by bokim            ###   ########.fr       */
+/*   Updated: 2021/10/15 23:51:16 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include "../libft/libft.h"
 
 #endif
