@@ -6,7 +6,7 @@
 #    By: bokim <bokim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 18:23:49 by bokim             #+#    #+#              #
-#    Updated: 2022/02/10 15:39:19 by bokim            ###   ########.fr        #
+#    Updated: 2022/02/10 18:55:27 by bokim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRC_B_PATH = ./bonus/
 INC_M_PATH = ./include/
 INC_B_PATH = $(SRC_B_PATH)
 
-SRC_M = push_swap.c
+SRC_M = push_swap.c \
+		doublylist.c \
+		display.c
 SRC_B = 
 		
 SRCS_M = $(addprefix $(SRC_M_PATH), $(SRC_M))
@@ -40,7 +42,7 @@ endif
 
 CC = gcc
 # 나중에 꼭 추가
-CFLAGS =
+CFLAGS = -g
 RM = rm -rf
 
 all: $(NAME)

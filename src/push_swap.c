@@ -6,23 +6,52 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:23:53 by bokim             #+#    #+#             */
-/*   Updated: 2022/02/10 15:38:15 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/10 18:54:57 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	check_argv(char **argv)
-{
-	//문자열을 int로 변환
-	//int 범위 밖의 숫자가 들어올 경우
-	//숫자가 아닌 문자가 들어올 경우
-	//부호 확인
-	//"1 3 5"와 같이 문자열로 들어올 때 쪼개기 (split으로?)
-	return (0);
+void	error_exit(char *msg){
+	ft_printf("Error: %s\n", msg);
+	exit(1);
 }
+
+int	fill_stack_a(t_stack *stack, char **argv)
+{
+	int size;
+	int value;
+	int	i;
+	int	j;
+	char	**split;
+
+	size = 0;
+	i = 1;
+	split = NULL;
+	while (argv[i]){
+		split = ft_split(argv[i], ' ');
+		if (!split)
+			error_exit("Split error");
+		j = 0;
+		while (split[j]){
+			value = ft_atoi(split[j]);
+			if (value < 0)
+				error_exit("Wrong input");
+			add_node(stack, value);
+			j++;
+		}
+		i++;
+	}
+	return (SUCCESS);
+}
+
 
 int	main(int argc, char **argv)
 {
-	check_argv(argv);
+	t_stack	*stack;
+
+	stack = init_stack();
+	fill_stack_a(stack, argv);
+	display_stack(stack);
+	return (0);
 }

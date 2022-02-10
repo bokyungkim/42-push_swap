@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 21:14:00 by bokim             #+#    #+#             */
-/*   Updated: 2022/01/13 20:15:09 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/10 17:39:57 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	check_range(long long res)
+{
+	if (res > 2147483647 || res < -2147483648)
+		return (-1);
+	return (1);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -27,15 +34,15 @@ int	ft_atoi(const char *str)
 	}
 	while (*str)
 	{
-		if (result * sign > 2147483647)
+		if (!(*str >= '0' && *str <= '9'))
 			return (-1);
-		else if (result * sign < -2147483648)
-			return (0);
-		else if (!(*str >= '0' && *str <= '9'))
-			return (0);
-		else
+		while (*str >= '0' && *str <= '9')
+		{
 			result = result * 10 + (*str - '0');
-		str++;
+			if (check_range(result * sign) == -1)
+				return (-1);
+			str++;
+		}
 	}
 	return (result * sign);
 }
