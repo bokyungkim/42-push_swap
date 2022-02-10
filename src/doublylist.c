@@ -6,20 +6,24 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:56:23 by bokim             #+#    #+#             */
-/*   Updated: 2022/02/10 18:09:45 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/10 21:29:37 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	init_node(t_node *node, int value, t_node *prev, t_node *next){
+void	init_node(t_node *node, int value, t_node *prev, t_node *next)
+{
 	node->value = value;
 	node->prev = prev;
 	node->next = next;
 }
 
-t_stack	*init_stack(void){
-	t_stack *stack = (t_stack *)malloc(sizeof(t_stack));
+t_stack	*init_stack(void)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		error_exit("Stack malloc error");
 	stack->size = 0;
@@ -34,9 +38,10 @@ t_stack	*init_stack(void){
 	return (stack);
 }
 
-void	add_node(t_stack *stack, int value){
-	t_node *node;
-	t_node *head;
+void	add_node(t_stack *stack, int value)
+{
+	t_node	*node;
+	t_node	*head;
 
 	head = stack->head;
 	node = (t_node *)malloc(sizeof(t_node));

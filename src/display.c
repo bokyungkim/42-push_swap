@@ -6,38 +6,50 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:54:37 by bokim             #+#    #+#             */
-/*   Updated: 2022/02/10 18:54:59 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/10 21:35:14 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_node* get_node(t_stack* pList, int position){
-	t_node *node;
-	
-	if (position <= pList->size / 2) {
-		node = pList->head;
-		for (int i = 0; i < position + 1; i++) {
+t_node	*get_node(t_stack *stack, int position)
+{
+	int		i;
+	t_node	*node;
+
+	i = 0;
+	if (position <= stack->size / 2)
+	{
+		node = stack->head;
+		while (i < position + 1)
+		{
 			node = node->next;
+			i++;
 		}
 	}
-	else {
-		node = pList->tail;
-		for (int i = 0; i < pList->size - position; i++) {
+	else
+	{
+		node = stack->tail;
+		while (i < stack->size - position)
+		{
 			node = node->prev;
+			i++;
 		}
 	}
 	return (node);
 }
 
-void display_stack(t_stack* pList){
-	int i = 0;
+void	display_stack(t_stack *stack)
+{
+	int	i;
 
-	if (pList->size > 0)
+	i = 0;
+	if (stack->size > 0)
 	{
-		for (i = 0; i < pList->size; i++)
+		while (i < stack->size)
 		{
-			ft_printf("[%d] : %d\n", i, get_node(pList, i)->value);
+			ft_printf("[%d] : %d\n", i, get_node(stack, i)->value);
+			i++;
 		}
 		ft_printf("--------\n");
 	}

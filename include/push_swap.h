@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:33:01 by bokim             #+#    #+#             */
-/*   Updated: 2022/02/10 18:55:16 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/10 21:38:22 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,31 @@
 
 # define SUCCESS	1
 # define FAIL	0
+# define TRUE	1
+# define FALSE	0
 
 typedef struct s_node {
-	int	value;
-	struct s_node *prev;
-	struct s_node *next;
-} t_node;
+	int				value;
+	struct s_node	*prev;
+	struct s_node	*next;
+}	t_node;
 
 typedef struct s_stack {
-	int	size;
-	t_node *head;
-	t_node *tail;
-	t_node *cursor;
-} t_stack;
+	int		size;
+	t_node	*head;
+	t_node	*tail;
+	t_node	*cursor;
+}	t_stack;
 
 void	error_exit(char *msg);
 t_stack	*init_stack(void);
+void	fill_stack_a(t_stack *stack, char **split);
+void	parse(t_stack *stack, char **argv);
 void	init_node(t_node *node, int value, t_node *prev, t_node *next);
-void	add_node(t_stack* stack, int value);
-t_node* get_node(t_stack* pList, int position);
-void display_stack(t_stack* pList);
+void	add_node(t_stack *stack, int value);
+void	check_wrong_input(char *input);
+void	check_repeat(t_stack *stack);
+t_node	*get_node(t_stack *pList, int position);
+void	display_stack(t_stack *pList);
 
 #endif
