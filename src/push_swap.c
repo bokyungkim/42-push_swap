@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:23:53 by bokim             #+#    #+#             */
-/*   Updated: 2022/02/10 21:23:43 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/16 00:54:36 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	error_exit(char *msg)
 {
-	ft_printf("Error: %s\n", msg);
+	ft_putstr_fd("Error: ", 2);
+	ft_putstr_fd(msg, 2);
+	ft_putchar_fd('\n', 2);
 	exit(1);
 }
 
