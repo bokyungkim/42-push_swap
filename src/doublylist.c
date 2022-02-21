@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doublylist.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:56:23 by bokim             #+#    #+#             */
-/*   Updated: 2022/02/10 21:29:37 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/22 03:12:44 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,21 @@ t_stack	*init_stack(void)
 	init_node(stack->tail, 0, 0, 0);
 	init_node(stack->cursor, 0, 0, 0);
 	return (stack);
+}
+
+t_op	*init_op(void)
+{
+	t_op	*operation;
+
+	operation = (t_op *)malloc(sizeof(t_op));
+	if (!operation)
+		error_exit("Operation list malloc error");
+	operation->size = 0;
+	operation->head = (t_node *)malloc(sizeof(t_node));
+	if (!operation->head)
+		error_exit("Node malloc error");
+	init_node(operation->head, 0, 0, 0);
+	return (operation);
 }
 
 void	add_node(t_stack *stack, int value)
