@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:54:37 by bokim             #+#    #+#             */
-/*   Updated: 2022/02/10 21:35:14 by bokim            ###   ########.fr       */
+/*   Updated: 2022/02/22 03:30:37 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	display_stack(t_stack *stack)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if (stack->size > 0)
 	{
-		while (i < stack->size)
+		while (i <= stack->size)
 		{
 			ft_printf("[%d] : %d\n", i, get_node(stack, i)->value);
 			i++;
